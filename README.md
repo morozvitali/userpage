@@ -1,7 +1,8 @@
 # User Profile API
 
 ## Description
-REST API for working with the user profile, including viewing, editing and uploading an avatar.
+REST API for working with the user profile, including viewing, editing and 
+uploading an avatar.
 
 ## Installation and launch
 1. Make sure **PostgreSQL** is installed.

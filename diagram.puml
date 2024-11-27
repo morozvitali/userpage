@@ -1,0 +1,33 @@
+@startuml
+class UserProfile {
+    - id: Long
+    - name: String
+    - surname: String
+    - jobTitle: String
+    - phone: String
+    - address: String
+    - interests: List<String>
+    - isPublic: Boolean
+    - avatarUrl: String
+}
+
+interface UserProfileRepository {
+    + findById(id: Long): Optional<UserProfile>
+    + save(profile: UserProfile): UserProfile
+}
+
+class UserProfileService {
+    + getProfile(): UserProfile
+    + updateProfile(profile: UserProfile): UserProfile
+}
+
+class UserProfileController {
+    + getProfile(): ResponseEntity<UserProfile>
+    + updateProfile(profile: UserProfile): ResponseEntity<UserProfile>
+    + uploadAvatar(file: MultipartFile): ResponseEntity<String>
+}
+
+UserProfileRepository --> UserProfile
+UserProfileService --> UserProfileRepository
+UserProfileController --> UserProfileService
+@enduml
